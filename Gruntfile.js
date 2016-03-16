@@ -21,9 +21,7 @@ module.exports = function(grunt) {
 		}
 	}
   });
-
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-watch');
+	require('load-grunt-tasks')(grunt);
 
   grunt.registerTask('index', ['connect']);
   grunt.registerTask('default', ['build']);

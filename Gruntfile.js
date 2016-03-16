@@ -7,15 +7,25 @@ module.exports = function(grunt) {
 				port: 9000,
 				hostname: 'localhost',
 				open: true,
-				keepalive: true
+				livereload: true
 			}
 		}
-    }
+    },
+	watch: {
+		options: {
+			livereload: true
+		},
+		livereload:{
+			files: 'index.html',
+			tasks: []
+		}
+	}
   });
 
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['jshint']);
   grunt.registerTask('index', ['connect']);
-
+  grunt.registerTask('default', ['build']);
+  grunt.registerTask('build', ['index', 'watch']);
 };

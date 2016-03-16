@@ -1,0 +1,23 @@
+{
+  "name": "frontendtools",
+  "version": "1.0.0",
+  "description": "Learning purposes.",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^4.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shymchack/FrontendTools.git"
+  },
+  "author": "Tomasz Szymczakowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shymchack/FrontendTools/issues"
+  },
+  "homepage": "https://github.com/shymchack/FrontendTools#readme"
+}

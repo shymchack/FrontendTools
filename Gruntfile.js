@@ -12,48 +12,13 @@ module.exports = function (grunt) {
                 output: '<%= cfg.paths.root %>/dist',
                 bower: '<%= cfg.paths.root %>/bower_components'
             }
-        },
-        connect: {
-            server: {
-                options: {
-                    base: 'dist/',
-                    port: 9000,
-                    hostname: 'localhost',
-                    open: true,
-                    livereload: true
-                }
-            }
-        },
-        watch: {
-            options: {
-                livereload: true
-            },
-            livereload: {
-                files: '<%= cfg.paths.output %>/index.html',
-                tasks: []
-            }
-        },
-        clean: {
-            dist: ['<%= cfg.paths.output %>']
-        },
-        copy: {
-            html: {
-                src: '<%= cfg.paths.source %>/index.html',
-                dest: '<%= cfg.paths.output %>/index.html'
-            },
-            bootstrap: {
-                src: '<%= cfg.paths.bower %>/bootstrap/dist/css/bootstrap.min.css',
-                dest: '<%= cfg.paths.output %>/bootstrap.min.css'
-            },
-            jumbotron: {
-                src: '<%= cfg.paths.source %>/styles/jumbotron.css',
-                dest: '<%= cfg.paths.output %>/jumbotron.css'
-            }
         }
     });
+
     require('load-grunt-tasks')(grunt);
 
-    grunt.registerTask('index', ['connect']);
     grunt.registerTask('default', ['build']);
-    grunt.registerTask('build', ['clean', 'copy', 'index', 'watch']);
+    grunt.registerTask('build', ['prepareDist', 'watchDist']);
+
+    grunt.task.loadTasks('tasks');
 };
